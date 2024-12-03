@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Speech Service";
+}
+
+<h2>Speech Service</h2>
+
+<form method="post" asp-action="RecognizeSpeech" enctype="multipart/form-data">
+    <div>
+        <label for="audioFile">Upload WAV File:</label>
+        <input type="file" id="audioFile" name="audioFile" accept=".wav" required />
+    </div>
+    <button type="submit">Recognize Speech</button>
+</form>
+
+@if (ViewBag.RecognizedText != null)
+{
+    <h3>Recognized Text:</h3>
+    <p>@ViewBag.RecognizedText</p>
+}
